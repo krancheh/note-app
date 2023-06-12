@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+#root {
+
+}
+
+.App {
+    display: flex;
+    margin: 0 auto;
+}

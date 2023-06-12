@@ -1,0 +1,10 @@
+.NoteList {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
