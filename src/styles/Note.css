@@ -1,8 +1,57 @@
+:root {
+    --note-padding: 25px;
+}
+
 .Note {
+    height: 300px;
     width: 300px;
-    height: 200px;
-    padding: 15px;
-    border: 2px solid #2b2b2b;
-    border-radius: 10px;
-    background-color: #eeeeee;
+    padding: var(--note-padding);
+
+    position: relative !important;
+
+    border-radius: 30px;
+    background-color: #FFF96F;
+}
+
+.Note:hover .edit-button {
+    visibility: visible;
+}
+
+.note-title {
+    font-size: 30px;
+}
+
+.note-text {
+    font-size: 20px;
+}
+
+.note-date {
+    position: absolute;
+    left: var(--note-padding);
+    bottom: var(--note-padding);
+}
+
+.edit-button {
+    visibility: hidden;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    background-color: #4D4C4D;
+    border: 0;
+    cursor: pointer;
+    border-radius: 50%;
+
+
+    position: absolute;
+    right: var(--note-padding);
+    bottom: var(--note-padding);
+}
+
+.edit-button:hover {
+    opacity: 95%;
+}
+
+.edit-button img {
+    margin: auto;
+    width: 20px;
 }

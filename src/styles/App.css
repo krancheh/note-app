@@ -11,4 +11,39 @@
 .App {
     display: flex;
     margin: 0 auto;
+    background-color: #f8f8f8;
+}
+
+main {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+main h1 {
+    font-size: 65px;
+}
+
+#search-bar {
+    font-size: 30px;
+    border: 0;
+    background-color: transparent;
+    text-indent: 30px;
+}
+
+.search-bar-holder {
+    position: relative;
+}
+
+.search-bar-holder svg {
+    fill: #b0b0b0;
+    position: absolute;
+    left: 0;
+    top: 14%;
+    pointer-events: none;
+}
+
+#search-bar:focus {
+    outline: 0;
 }
