@@ -26,10 +26,10 @@ main h1 {
 }
 
 #search-bar {
+    padding-left: 35px;
     font-size: 30px;
     border: 0;
     background-color: transparent;
-    text-indent: 30px;
 }
 
 .search-bar-holder {

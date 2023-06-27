@@ -17,12 +17,26 @@
     visibility: visible;
 }
 
+.Note:hover .delete-button {
+    visibility: visible;
+}
+
 .note-title {
     font-size: 30px;
 }
 
 .note-text {
+    max-height: calc(100% - 60px);
     font-size: 20px;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+
+    overflow: hidden;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
 }
 
 .note-date {
@@ -54,4 +68,20 @@
 .edit-button img {
     margin: auto;
     width: 20px;
+}
+
+.delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    visibility: hidden;
+
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    opacity: 80%;
 }

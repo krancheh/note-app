@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import '../styles/Note.css';
 import editLogo from '../assets/edit-icon.svg'
+import {ReactComponent as DeleteIcon} from "../assets/delete-icon.svg";
 
-const Note = (props) => {
-    const [title, setTitle] = useState(props.title);
-    const [text, setText] = useState(props.text);
-
+const Note = ({note}) => {
+    const [title, setTitle] = useState(note.title);
+    const [text, setText] = useState(note.text);
 
     return (
         <div className='Note'>
@@ -13,6 +13,7 @@ const Note = (props) => {
             <p className='note-text'>{text}</p>
             <p className='note-date'>June 14, 2023</p>
             <button className='edit-button'><img alt='edit' src={editLogo}/></button>
+            <button className='delete-button'><DeleteIcon/></button>
         </div>
     );
 };

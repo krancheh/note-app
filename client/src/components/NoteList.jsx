@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
 import Note from "./Note";
 import '../styles/NoteList.css'
+import {useSelector} from "react-redux";
 
-const NoteList = (props) => {
-    const [notes, setNotes] = useState(props.notes);
+const NoteList = () => {
+    const notes = useSelector(state => state.notes.notes)
 
     return (
         <div className="NoteList">
             {notes.map((note) => {
-                return <Note key={note.id} title={note.title} text={note.text}></Note>
+                return <Note key={note.id} note={note}></Note>
             })}
         </div>
     );
