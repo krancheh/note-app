@@ -1,18 +1,22 @@
 import React from 'react';
 import {ReactComponent as SearchIcon} from "../assets/search-icon.svg";
-import {useDispatch, useSelector} from "react-redux";
-import {findNotes} from "../store/noteListSlice"
+import {useDispatch} from "react-redux";
+import {setSearchQuery} from "../store/notesSlice"
 
 const SearchBar = () => {
-    const notes = useSelector(state => state.notes.notes)
     const dispatch = useDispatch();
+
+    const handleSearch = (event) => {
+        const searchQuery = event.target.value;
+        dispatch(setSearchQuery(searchQuery))
+    }
 
     return (
         <div className='search-bar-holder'>
             <input
                 id='search-bar'
                 type='text' placeholder='Search'
-                onChange={event => dispatch(findNotes(event.target.value))}
+                onChange={handleSearch}
             />
             <SearchIcon/>
         </div>

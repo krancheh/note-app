@@ -5,16 +5,17 @@
 }
 
 #root {
-
 }
 
 .App {
+    min-height: 100vh;
     display: flex;
     margin: 0 auto;
     background-color: #f8f8f8;
 }
 
 main {
+    margin-left: 300px;
     padding: 25px;
     display: flex;
     flex-direction: column;

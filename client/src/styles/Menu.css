@@ -1,9 +1,9 @@
 .Menu {
-    min-width: 250px;
     height: 100vh;
+    min-width: 250px;
     padding: 20px;
-    margin-right: 20px;
 
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,21 +14,92 @@
     border-right: 1px solid #cbcbcb;
 }
 
-.addButton {
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.buttons:hover .dropdown-menu {
+    /*display: flex;*/
+}
+
+.buttons:hover .colored-button {
+    animation-play-state: running;
+    display: block;
+}
+
+.add-button {
     width: 50px;
     height: 50px;
-    display: flex;
 
     background-color: #4D4C4D;
     border: 0;
     border-radius: 50%;
 }
 
-.addButton:hover {
+.add-button:hover {
     opacity: 95%;
     cursor: pointer;
 }
 
-.addButton svg {
+.add-button svg {
     margin: auto;
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.colored-button {
+    height: 30px;
+    width: 30px;
+    margin: 0 auto;
+
+    border: 0;
+    border-radius: 50%;
+
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    transform: scale(1);
+    cursor: pointer;
+    animation: coloredButtonsAnim .05s linear forwards;
+    animation-play-state: paused;
+}
+
+.colored-button:hover {
+    transform: scale(1.2);
+}
+
+.colored-button:nth-child(1) {
+    background-color: #fff875;
+}
+
+.colored-button:nth-child(2) {
+    background-color: #93ff75;
+    animation-delay: .05s;
+}
+
+.colored-button:nth-child(3) {
+    background-color: #98b3ff;
+    animation-delay: .1s;
+}
+
+.colored-button:nth-child(4) {
+    background-color: #ff7575;
+    animation-delay: .15s;
+}
+
+
+@keyframes coloredButtonsAnim {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

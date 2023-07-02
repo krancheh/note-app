@@ -1,19 +1,34 @@
-import React, {useState} from 'react';
 import '../styles/Note.css';
 import editLogo from '../assets/edit-icon.svg'
 import {ReactComponent as DeleteIcon} from "../assets/delete-icon.svg";
+import {useDispatch} from "react-redux";
+import {deleteNote, updateNote} from "../store/notesSlice";
 
-const Note = ({note}) => {
-    const [title, setTitle] = useState(note.title);
-    const [text, setText] = useState(note.text);
+const Note = ({id, title, content, date, color}) => {
+
+    const dispatch = useDispatch();
+
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December'];
+    const dateObj = new Date(date);
+    const formattedDate = `${months[dateObj.getMonth()]} ${dateObj.getDate()}, ${dateObj.getFullYear()} ${dateObj.getHours()}:${dateObj.getMinutes()}`
+
+    const editNoteHandler = () => {
+        dispatch(updateNote())
+    }
+
+    const deleteNoteHandler = () => {
+        dispatch(deleteNote({id}))
+    }
 
     return (
-        <div className='Note'>
+        <div className='Note' style={{"backgroundColor": color}}>
             <h2 className='note-title'>{title}</h2>
-            <p className='note-text'>{text}</p>
-            <p className='note-date'>June 14, 2023</p>
-            <button className='edit-button'><img alt='edit' src={editLogo}/></button>
-            <button className='delete-button'><DeleteIcon/></button>
+            <p className='note-text'>{content}</p>
+            <p className='note-date'>{formattedDate}</p>
+            <button className='edit-button' onClick={editNoteHandler}><img alt='edit' src={editLogo}/></button>
+            <div className="delete-zone">
+                <button className='delete-button' onClick={deleteNoteHandler}><DeleteIcon/></button>
+            </div>
         </div>
     );
 };

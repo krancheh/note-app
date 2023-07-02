@@ -10,16 +10,13 @@
     position: relative !important;
 
     border-radius: 30px;
-    background-color: #FFF96F;
+    background-color: #fff875;
 }
 
 .Note:hover .edit-button {
     visibility: visible;
 }
 
-.Note:hover .delete-button {
-    visibility: visible;
-}
 
 .note-title {
     font-size: 30px;
@@ -70,16 +67,24 @@
     width: 20px;
 }
 
-.delete-button {
+.delete-zone {
     position: absolute;
     top: 0;
     right: 0;
+    transform: translate(10px, -5px);
+}
+
+.delete-button {
 
     visibility: hidden;
 
     border: 0;
     background-color: transparent;
     cursor: pointer;
+}
+
+.delete-zone:hover .delete-button {
+    visibility: visible;
 }
 
 .delete-button:hover {
