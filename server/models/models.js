@@ -10,7 +10,7 @@ const User = sequelize.define('user',{
 const Notes = sequelize.define('notes',{
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     title:{type: DataTypes.STRING},
-    description:{type: DataTypes.STRING},
+    content:{type: DataTypes.STRING},
 });
 
 User.hasMany(Notes)
