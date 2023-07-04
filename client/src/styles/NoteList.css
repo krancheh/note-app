@@ -13,7 +13,16 @@
 }
 
 .vm-list .Note {
-    max-height: 200px;
+    max-height: 150px;
     max-width: 100%;
     width: 100%;
+}
+
+.vm-list .Note .note-text {
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
 }

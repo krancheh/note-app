@@ -40,11 +40,11 @@ main h1 {
     gap: 10px;
 }
 
-.vm-radio-button {
+.vm-radio {
     display: none;
 }
 
-.vm-radio-button:checked + .vm-label {
+.vm-radio:checked + .vm-label {
     opacity: 1;
 }
 

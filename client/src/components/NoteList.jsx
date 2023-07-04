@@ -3,14 +3,13 @@ import '../styles/NoteList.css'
 import {useSelector} from "react-redux";
 import {selectFilteredNotes} from "../store/notesSlice";
 
-const NoteList = () => {
+const NoteList = ({viewMode}) => {
     const filteredNotes = useSelector(selectFilteredNotes)
 
     return (
-        <div className="NoteList">
+        <div className={`NoteList ${viewMode}`}>
             {filteredNotes.map((note) => {
-                return <Note key={note.id} id={note.id} title={note.title} content={note.content}
-                             date={note.date} color={note.color}></Note>
+                return <Note key={note.id} note={note}></Note>
             })}
         </div>
     );

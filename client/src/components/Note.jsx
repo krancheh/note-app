@@ -4,8 +4,9 @@ import {ReactComponent as DeleteIcon} from "../assets/delete-icon.svg";
 import {useDispatch} from "react-redux";
 import {deleteNote, updateNote} from "../store/notesSlice";
 
-const Note = ({id, title, content, date, color}) => {
+const Note = ({note}) => {
 
+    const {id, title, content, date, color} = note;
     const dispatch = useDispatch();
 
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December'];
