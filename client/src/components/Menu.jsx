@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/Menu.css'
+import '../styles/Menu.css';
 import {ReactComponent as MainLogo} from "../assets/main-logo.svg";
-import {ReactComponent as AddLogo} from "../assets/add-logo.svg"
+import {ReactComponent as AddLogo} from "../assets/add-logo.svg";
 import {useDispatch} from "react-redux";
 import {addNote} from "../store/notesSlice";
 
