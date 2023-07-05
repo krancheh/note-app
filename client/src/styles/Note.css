@@ -5,11 +5,9 @@
 .Note {
     height: 300px;
     width: 300px;
-    max-width: 810px;
     padding: var(--note-padding);
 
     position: relative !important;
-    flex-grow: 1;
 
     border-radius: 30px;
     background-color: #fff875;
@@ -21,12 +19,13 @@
 
 
 .note-title {
-    font-size: 30px;
+    font-size: 28px;
 }
 
 .note-text {
     max-height: calc(100% - 60px);
-    font-size: 20px;
+    margin-bottom: 35px;
+    font-size: 18px;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
 
@@ -39,6 +38,7 @@
 }
 
 .note-date {
+    font-size: 15px ;
     position: absolute;
     left: var(--note-padding);
     bottom: var(--note-padding);

@@ -4,7 +4,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-start;
-    align-items: center;
     gap: 20px;
 }
 
@@ -13,16 +12,14 @@
 }
 
 .vm-list .Note {
-    max-height: 150px;
-    max-width: 100%;
+    max-height: 170px;
     width: 100%;
+    height: auto;
 }
 
 .vm-list .Note .note-text {
+    max-width: calc(100% - 50px);
     overflow: hidden;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
 }
