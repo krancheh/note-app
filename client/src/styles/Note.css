@@ -1,16 +1,30 @@
 :root {
     --note-padding: 25px;
+    --note-shadow: #c9c9c9
 }
 
 .Note {
     height: 300px;
-    width: 300px;
     padding: var(--note-padding);
 
     position: relative !important;
 
     border-radius: 30px;
     background-color: #fff875;
+
+    opacity: 0;
+    transition: ease-in-out .1s;
+}
+
+.Note.Note-appear {
+    opacity: 1;
+}
+
+.Note:hover {
+    -webkit-box-shadow: 0 0 10px 2px var(--note-shadow);
+    -moz-box-shadow: 0 0 10px 2px var(--note-shadow);
+    box-shadow: 0 0 10px 2px var(--note-shadow);
+    scale: 1.009;
 }
 
 .Note:hover .edit-button {

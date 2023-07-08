@@ -20,6 +20,7 @@ const notesSlice = createSlice({
             {id: 8, title: 'Note 8', content: 'Рандом текстик 4 Негры ', date: 1688318805, color: '#FFF96F'},
         ],
         searchQuery: '',
+        viewMode: 'vm-tiles',
     },
     reducers: {
         addNote(state, action) {
@@ -41,7 +42,11 @@ const notesSlice = createSlice({
 
         setSearchQuery(state, action) {
             state.searchQuery = action.payload.toLowerCase();
-        }
+        },
+
+        setViewMode(state, action) {
+            state.viewMode = action.payload;
+        },
 
     }
 
@@ -57,6 +62,8 @@ const compareDates = (noteA, noteB) => {
 }
 
 
+export const selectViewMode = (state) => state.notes.viewMode;
+
 export const selectFilteredNotes = (state) => {
     const searchQuery = state.notes.searchQuery;
     const notes = [...state.notes.notes].sort(compareDates);
@@ -64,7 +71,13 @@ export const selectFilteredNotes = (state) => {
     return notes.filter((note) => note.title.toLowerCase().includes(searchQuery) || note.content.toLowerCase().includes(searchQuery))
 }
 
-export const {addNote, deleteNote, updateNote, setSearchQuery} = notesSlice.actions;
+export const {
+    addNote,
+    deleteNote,
+    updateNote,
+    setSearchQuery,
+    setViewMode,
+} = notesSlice.actions;
 
 
 export default notesSlice.reducer;

@@ -22,7 +22,7 @@ const Note = ({note}) => {
     }
 
     return (
-        <div className='Note' style={{"backgroundColor": color}}>
+        <div className='Note Note-appear' style={{"backgroundColor": color}}>
             <h2 className='note-title'>{title}</h2>
             <p className='note-text'>{content}</p>
             <p className='note-date'>{formattedDate}</p>

@@ -1,14 +1,15 @@
 .NoteList {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: flex-start;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
 .vm-list {
+    display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 .vm-list .Note {

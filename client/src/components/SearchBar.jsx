@@ -7,8 +7,8 @@ import {setSearchQuery} from "../store/notesSlice";
 const SearchBar = () => {
     const dispatch = useDispatch();
 
-    const handleSearch = (event) => {
-        const searchQuery = event.target.value;
+    const handleSearch = (e) => {
+        const searchQuery = e.target.value;
         dispatch(setSearchQuery(searchQuery))
     }
 

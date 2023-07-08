@@ -1,10 +1,11 @@
 import Note from "./Note";
 import '../styles/NoteList.css'
 import {useSelector} from "react-redux";
-import {selectFilteredNotes} from "../store/notesSlice";
+import {selectFilteredNotes, selectViewMode} from "../store/notesSlice";
 
-const NoteList = ({viewMode}) => {
+const NoteList = () => {
     const filteredNotes = useSelector(selectFilteredNotes)
+    const viewMode = useSelector(selectViewMode);
 
     return (
         <div className={`NoteList ${viewMode}`}>
