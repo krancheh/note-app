@@ -7,16 +7,16 @@
 #root {
 }
 
-.App {
+.app {
     min-height: 100vh;
     display: flex;
     margin: 0 auto;
+    position: relative;
     background-color: #f8f8f8;
 }
 
 main {
     width: 100vw;
-    min-width: 800px;
     margin-left: 250px;
     padding: 25px 100px;
     display: flex;
@@ -24,3 +24,17 @@ main {
     gap: 30px;
 }
 
+
+@media (max-width: 1150px) {
+    main {
+        margin: 0;
+        padding: 20px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    main {
+        padding: 10px;
+    }
+}

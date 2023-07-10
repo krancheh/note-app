@@ -3,7 +3,7 @@
     --note-shadow: #c9c9c9
 }
 
-.Note {
+.note {
     height: 300px;
     padding: var(--note-padding);
 
@@ -16,18 +16,18 @@
     transition: ease-in-out .1s;
 }
 
-.Note.Note-appear {
+.note.note-appear {
     opacity: 1;
 }
 
-.Note:hover {
+.note:hover {
     -webkit-box-shadow: 0 0 10px 2px var(--note-shadow);
     -moz-box-shadow: 0 0 10px 2px var(--note-shadow);
     box-shadow: 0 0 10px 2px var(--note-shadow);
     scale: 1.009;
 }
 
-.Note:hover .edit-button {
+.note:hover .edit-button {
     visibility: visible;
 }
 
@@ -36,7 +36,7 @@
     font-size: 28px;
 }
 
-.note-text {
+.note-content {
     max-height: calc(100% - 60px);
     margin-bottom: 35px;
     font-size: 18px;
@@ -108,4 +108,25 @@
 
 .delete-button:hover {
     opacity: 80%;
+}
+
+
+@media (max-width: 820px) {
+    .note {
+        padding: 20px;
+        height: 220px;
+    }
+
+    .note-title {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .note-content {
+        font-size: 14px;
+    }
+
+    .note-date {
+        font-size: 10px;
+    }
 }

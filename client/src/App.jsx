@@ -1,21 +1,21 @@
 import './styles/App.css';
 import Menu from "./components/Menu";
 import NoteList from "./components/NoteList";
-import DeleteModal from "./components/DeleteModal";
 import SearchBar from "./components/SearchBar";
 import Header from "./components/Header";
+import AddButton from "./components/AddButton";
 
 function App() {
 
     return (
-        <div className="App">
-            <Menu></Menu>
+        <div className="app">
+            <Menu/>
             <main>
                 <SearchBar/>
-                <Header></Header>
-                <NoteList></NoteList>
+                <Header/>
+                <NoteList/>
             </main>
-            <DeleteModal/>
+            <AddButton floating={true}/>
         </div>
     );
 }

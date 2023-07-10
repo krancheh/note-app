@@ -1,7 +1,8 @@
-.Menu {
+.menu {
     height: 100vh;
     min-width: 250px;
     padding: 20px;
+    z-index: 10;
 
     position: fixed;
     display: flex;
@@ -14,109 +15,9 @@
     border-right: 1px solid #cbcbcb;
 }
 
-.buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
 
-.buttons:hover .colored-button {
-    animation-play-state: running;
-    display: block;
-}
-
-.add-button {
-    width: 50px;
-    height: 50px;
-
-    background-color: #727272;
-    border: 0;
-    border-radius: 50%;
-}
-
-.add-button svg {
-    margin: auto;
-    transition: transform .30s;
-}
-
-.add-button:hover {
-    opacity: 0.9;
-    cursor: pointer;
-}
-
-.add-button:hover svg {
-    transform: rotate(180deg);
-}
-
-.add-button:active {
-     scale: .95;
-}
-
-
-
-
-
-
-.dropdown-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.colored-button {
-    height: 30px;
-    width: 30px;
-    margin: 0 auto;
-
-    border: 0;
-    border-radius: 50%;
-
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s;
-    transform: scale(1);
-    cursor: pointer;
-    animation: coloredButtonsAnim .05s linear forwards;
-    animation-play-state: paused;
-}
-
-.colored-button:hover {
-    scale: 1.1;
-    -webkit-box-shadow: 0px 0px 3px 2px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 0px 0px 3px 2px rgba(34, 60, 80, 0.2);
-    box-shadow: 0px 0px 3px 2px rgba(34, 60, 80, 0.2);
-}
-
-.colored-button:active {
-    scale: 1;
-}
-
-.colored-button:nth-child(1) {
-    background-color: #fff875;
-}
-
-.colored-button:nth-child(2) {
-    background-color: #93ff75;
-    animation-delay: .05s;
-}
-
-.colored-button:nth-child(3) {
-    background-color: #98b3ff;
-    animation-delay: .1s;
-}
-
-.colored-button:nth-child(4) {
-    background-color: #ff7575;
-    animation-delay: .15s;
-}
-
-
-@keyframes coloredButtonsAnim {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
+@media (max-width: 1150px) {
+    .menu {
+        display: none;
     }
 }

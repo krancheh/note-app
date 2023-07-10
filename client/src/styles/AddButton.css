@@ -1,0 +1,144 @@
+
+.buttons {
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+
+}
+
+.buttons.floating {
+    flex-direction: row-reverse;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+
+.buttons:hover .colored-button {
+    animation-play-state: running;
+    display: block;
+}
+
+.buttons:hover .add-button svg {
+    transform: rotate(180deg);
+}
+
+.add-button {
+    width: 50px;
+    height: 50px;
+
+    background-color: #727272;
+    border: 0;
+    border-radius: 50%;
+}
+
+.add-button svg {
+    margin: auto;
+    transition: transform .30s;
+}
+
+.add-button:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+
+.add-button:active {
+    scale: .95;
+}
+
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.colored-button {
+    height: 30px;
+    width: 30px;
+    margin: 0 auto;
+
+    border: 0;
+    border-radius: 50%;
+
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    transform: scale(1);
+    cursor: pointer;
+    -webkit-animation: coloredButtonsAnimBottom .05s linear forwards;
+    -o-animation: coloredButtonsAnimBottom .05s linear forwards;
+    animation: coloredButtonsAnimBottom .05s linear forwards;
+    animation-play-state: paused;
+}
+
+.floating .dropdown-menu {
+    flex-direction: row;
+}
+
+.floating .dropdown-menu .colored-button {
+    -webkit-animation: coloredButtonsAnimLeft .05s linear forwards;
+    -o-animation: coloredButtonsAnimLeft .05s linear forwards;
+    animation: coloredButtonsAnimLeft .05s linear forwards;
+}
+
+.colored-button:hover {
+    scale: 1.1;
+    -webkit-box-shadow: 0px 0px 3px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 0px 3px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 0px 3px 2px rgba(34, 60, 80, 0.2);
+}
+
+.colored-button:active {
+    scale: 1;
+}
+
+.colored-button:nth-child(1) {
+    background-color: #fff875;
+}
+
+.colored-button:nth-child(2) {
+    background-color: #93ff75;
+    animation-delay: .05s;
+}
+
+.colored-button:nth-child(3) {
+    background-color: #98b3ff;
+    animation-delay: .1s;
+}
+
+.colored-button:nth-child(4) {
+    background-color: #ff7575;
+    animation-delay: .15s;
+}
+
+
+@keyframes coloredButtonsAnimBottom {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes coloredButtonsAnimLeft {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (min-width: 1150px) {
+    .buttons.floating {
+        display: none;
+    }
+}

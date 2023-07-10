@@ -2,11 +2,11 @@ import '../styles/Note.css';
 import editLogo from '../assets/edit-icon.svg'
 import {ReactComponent as DeleteIcon} from "../assets/delete-icon.svg";
 import {useDispatch} from "react-redux";
-import {deleteNote, updateNote} from "../store/notesSlice";
+import {updateNote} from "../store/notesSlice";
 
-const Note = ({note}) => {
+const Note = ({note, setIsDelModalActive, setSelectedNote}) => {
 
-    const {id, title, content, date, color} = note;
+    const {title, content, date, color} = note;
     const dispatch = useDispatch();
 
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December'];
@@ -18,13 +18,14 @@ const Note = ({note}) => {
     }
 
     const deleteNoteHandler = () => {
-        dispatch(deleteNote({id}))
+        setIsDelModalActive(true);
+        setSelectedNote(note);
     }
 
     return (
-        <div className='Note Note-appear' style={{"backgroundColor": color}}>
+        <div className='note note-appear' style={{"backgroundColor": color}}>
             <h2 className='note-title'>{title}</h2>
-            <p className='note-text'>{content}</p>
+            <p className='note-content'>{content}</p>
             <p className='note-date'>{formattedDate}</p>
             <button className='edit-button' onClick={editNoteHandler}><img alt='edit' src={editLogo}/></button>
             <div className="delete-zone">
