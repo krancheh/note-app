@@ -19,6 +19,4 @@
 
 npm-debug.log*
 /.idea/
-/client/node_modules/
-/server/.idea/
-/server/node_modules/
+/node_modules/
