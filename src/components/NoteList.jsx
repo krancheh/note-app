@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {deleteNote, selectFilteredNotes, selectViewMode} from "../store/notesSlice";
 import {useState} from "react";
 import ConfirmationModal from "./ConfirmationModal";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 const NoteList = () => {
 
@@ -31,16 +32,17 @@ const NoteList = () => {
 
     return (
         <>
-            <div className={`note-list ${viewMode}`}>
-                {filteredNotes.map((note) => {
-                    return <Note
-                        setIsDelModalActive={setIsDelModalActive}
-                        setSelectedNote={setSelectedNote}
-                        key={note.id}
-                        note={note}
-                    />
-                })}
-            </div>
+            <TransitionGroup className={`note-list ${viewMode}`}>
+                {filteredNotes.map((note) => (
+                    <CSSTransition key={note.id} classNames="note" timeout={350}>
+                        <Note
+                            setIsDelModalActive={setIsDelModalActive}
+                            setSelectedNote={setSelectedNote}
+                            note={note}
+                        />
+                    </CSSTransition>
+                ))}
+            </TransitionGroup>
 
             <ConfirmationModal
                 active={isDelModalActive}

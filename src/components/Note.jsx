@@ -23,7 +23,7 @@ const Note = ({note, setIsDelModalActive, setSelectedNote}) => {
     }
 
     return (
-        <div className='note note-appear' style={{"backgroundColor": color}}>
+        <div className='note' style={{"backgroundColor": color}}>
             <h2 className='note-title'>{title}</h2>
             <p className='note-content'>{content}</p>
             <p className='note-date'>{formattedDate}</p>

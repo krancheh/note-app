@@ -12,12 +12,7 @@
     border-radius: 30px;
     background-color: #fff875;
 
-    opacity: 0;
-    transition: ease-in-out .1s;
-}
-
-.note.note-appear {
-    opacity: 1;
+    z-index: 5;
 }
 
 .note:hover {
@@ -29,6 +24,32 @@
 
 .note:hover .edit-button {
     visibility: visible;
+}
+
+.note-enter {
+    scale: 0;
+    opacity: 0;
+    translate: -120%;
+    z-index: 10;
+}
+
+.note-enter-active {
+    scale: 1;
+    opacity: 1;
+    translate: 0;
+    transition: 350ms ease-in;
+    z-index: 10;
+}
+
+.note-exit {
+    scale: 1;
+    opacity: 1;
+}
+
+.note-exit-active {
+    scale: 0;
+    opacity: 0;
+    transition: 300ms ease-in;
 }
 
 
@@ -52,22 +73,23 @@
 }
 
 .note-date {
-    font-size: 15px ;
+    font-size: 15px;
     position: absolute;
     left: var(--note-padding);
     bottom: var(--note-padding);
 }
 
 .edit-button {
-    visibility: hidden;
     width: 45px;
     height: 45px;
     display: flex;
     background-color: #575757;
-    border: 0;
-    cursor: pointer;
-    border-radius: 50%;
+    visibility: hidden;
+    opacity: .9;
 
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
 
     position: absolute;
     right: var(--note-padding);
@@ -75,7 +97,7 @@
 }
 
 .edit-button:hover {
-    opacity: 95%;
+    opacity: 1;
 }
 
 .edit-button img {
@@ -91,10 +113,11 @@
 }
 
 .delete-button {
-    visibility: hidden;
     padding: 10px;
     height: 40px;
     width: 40px;
+    visibility: hidden;
+    opacity: .9;
 
     border: 0;
     border-radius: 50%;
@@ -107,7 +130,24 @@
 }
 
 .delete-button:hover {
-    opacity: 80%;
+    opacity: 1;
+}
+
+@media (max-width: 1150px) {
+    .note-enter {
+        scale: 0;
+        opacity: 0;
+        translate: 90vw 90vh;
+        z-index: 10;
+    }
+
+    .note-enter-active {
+        scale: 1;
+        opacity: 1;
+        translate: 0;
+        transition: 350ms ease-in;
+        z-index: 10;
+    }
 }
 
 

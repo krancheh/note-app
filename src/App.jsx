@@ -1,22 +1,19 @@
 import './styles/App.css';
-import Menu from "./components/Menu";
-import NoteList from "./components/NoteList";
-import SearchBar from "./components/SearchBar";
-import Header from "./components/Header";
-import AddButton from "./components/AddButton";
+import {Route, Routes} from "react-router-dom";
+import NotesPage from "./pages/NotesPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import WelcomePage from "./pages/WelcomePage";
+import NotePage from "./pages/NotePage";
 
 function App() {
 
     return (
-        <div className="app">
-            <Menu/>
-            <main>
-                <SearchBar/>
-                <Header/>
-                <NoteList/>
-            </main>
-            <AddButton floating={true}/>
-        </div>
+        <Routes>
+            <Route path="/" element={<WelcomePage/>}/>
+            <Route path="/notes" element={<NotesPage/>}/>
+            <Route path="notes/:id" element={<NotePage/>}/>
+            <Route path="*" element={<NotFoundPage/>}/>
+        </Routes>
     );
 }
 

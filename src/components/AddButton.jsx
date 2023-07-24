@@ -18,6 +18,10 @@ const AddButton = ({floating}) => {
         dispatch(addNote({color}));
     }
 
+    // const showAddButtons = (e) => {
+    //     e.target.classList.toggle('show');
+    // }
+
 
     return (
         <div className={`buttons ${floating ? 'floating' : ''}`}>
