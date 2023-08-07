@@ -6,7 +6,7 @@ const NotFoundPage = () => {
         <>
             <div style={{textAlign: 'center'}}>
                 <h1 style={{marginTop: '30vh'}}>Error 404: page not found :(</h1>
-                <Link to={"/"}>Go to main</Link>
+                <Link to={"/note-app"}>Go to main</Link>
             </div>
         </>
     );

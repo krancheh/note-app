@@ -1,7 +1,6 @@
-.notes-page {
+.page {
     min-height: 100vh;
     display: flex;
-    margin: 0 auto;
     position: relative;
     background-color: #f8f8f8;
 }
@@ -21,6 +20,10 @@ main {
         margin: 0;
         padding: 20px;
         gap: 20px;
+    }
+
+    .note-page main {
+        padding: 0;
     }
 }
 

@@ -15,6 +15,15 @@
     border-right: 1px solid #cbcbcb;
 }
 
+.footer {
+    margin-top: auto;
+    color: #b0b0b0;
+}
+
+.footer a {
+    color: #9b9b9b;
+}
+
 
 @media (max-width: 1150px) {
     .menu {

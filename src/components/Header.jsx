@@ -9,17 +9,19 @@ const Header = () => {
     const viewMode = useSelector(selectViewMode);
 
     const handleVMChange = (e) => {
-        const viewMode = e.target.value;
-        dispatch(setViewMode(viewMode))
+        const newViewMode = e.target.value;
+        dispatch(setViewMode(newViewMode))
     }
 
     return (
         <div className="header">
             <h1>Notes</h1>
             <div className="vm-buttons">
-                <input type="radio" name="vm-radio" className="vm-radio" id="vm-tiles" value="vm-tiles" checked={viewMode === 'vm-tiles'} onChange={handleVMChange}/>
+                <input type="radio" name="vm-radio" className="vm-radio" id="vm-tiles" value="vm-tiles"
+                       checked={viewMode === 'vm-tiles'} onChange={handleVMChange}/>
                 <label className="vm-label vm-label__tiles" htmlFor="vm-tiles"></label>
-                <input type="radio" name="vm-radio" className="vm-radio" id="vm-list" value="vm-list" checked={viewMode === 'vm-list'} onChange={handleVMChange}/>
+                <input type="radio" name="vm-radio" className="vm-radio" id="vm-list" value="vm-list"
+                       checked={viewMode === 'vm-list'} onChange={handleVMChange}/>
                 <label className="vm-label vm-label__list" htmlFor="vm-list"></label>
             </div>
         </div>

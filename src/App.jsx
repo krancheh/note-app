@@ -9,9 +9,9 @@ function App() {
 
     return (
         <Routes>
-            <Route path="/" element={<WelcomePage/>}/>
-            <Route path="/notes" element={<NotesPage/>}/>
-            <Route path="notes/:id" element={<NotePage/>}/>
+            <Route path="/note-app" element={<WelcomePage/>}/>
+            <Route path="/note-app/notes" element={<NotesPage/>}/>
+            <Route path="note-app/notes/:id" element={<NotePage/>}/>
             <Route path="*" element={<NotFoundPage/>}/>
         </Routes>
     );

@@ -3,11 +3,15 @@
     --note-shadow: #c9c9c9
 }
 
+.note-wrapper {
+    position: relative;
+}
+
 .note {
     height: 300px;
+    text-decoration: none;
+    color: #000;
     padding: var(--note-padding);
-
-    position: relative !important;
 
     border-radius: 30px;
     background-color: #fff875;
@@ -15,11 +19,12 @@
     z-index: 5;
 }
 
-.note:hover {
+.note-wrapper:hover .note {
     -webkit-box-shadow: 0 0 10px 2px var(--note-shadow);
     -moz-box-shadow: 0 0 10px 2px var(--note-shadow);
     box-shadow: 0 0 10px 2px var(--note-shadow);
     scale: 1.009;
+    cursor: pointer;
 }
 
 .note:hover .edit-button {
@@ -72,6 +77,10 @@
     box-orient: vertical;
 }
 
+.vm-list .note-content {
+    -webkit-line-clamp: 2;
+}
+
 .note-date {
     font-size: 15px;
     position: absolute;
@@ -106,14 +115,21 @@
 }
 
 .delete-zone {
+    height: 60px;
+    width: 60px;
+
     position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(10px, -5px);
+    top: -15px;
+    right: -15px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    z-index: 999;
 }
 
 .delete-button {
-    padding: 10px;
+    padding: 9px;
     height: 40px;
     width: 40px;
     visibility: hidden;
@@ -123,6 +139,7 @@
     border-radius: 50%;
     background-color: #e3e3e3;
     cursor: pointer;
+    z-index: 999;
 }
 
 .delete-zone:hover .delete-button {
@@ -152,8 +169,11 @@
 
 
 @media (max-width: 820px) {
+    :root {
+        --note-padding: 20px;
+    }
+
     .note {
-        padding: 20px;
         height: 220px;
     }
 
@@ -168,5 +188,9 @@
 
     .note-date {
         font-size: 10px;
+    }
+
+    .delete-zone {
+        display: none;
     }
 }

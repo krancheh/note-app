@@ -5,7 +5,7 @@ const WelcomePage = () => {
     return (
         <div style={{textAlign: 'center', marginTop: '40vh'}}>
             <h1>Welcome to NotePlus!</h1>
-            <Link to={"/notes"}>Go to Notes</Link>
+            <Link to={"notes"}>Go to Notes</Link>
         </div>
     );
 };

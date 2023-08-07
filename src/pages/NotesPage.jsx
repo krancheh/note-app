@@ -4,11 +4,11 @@ import SearchBar from "../components/SearchBar";
 import Header from "../components/Header";
 import NoteList from "../components/NoteList";
 import AddButton from "../components/AddButton";
-import "../styles/NotesPage.css"
+import "../styles/Page.css"
 
 const NotesPage = () => {
     return (
-        <div className="notes-page">
+        <div className="page">
             <Menu/>
             <main>
                 <SearchBar/>

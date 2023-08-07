@@ -9,6 +9,7 @@ import {CSSTransition, TransitionGroup} from "react-transition-group";
 const NoteList = () => {
 
     const filteredNotes = useSelector(selectFilteredNotes)
+    console.log(filteredNotes)
     const viewMode = useSelector(selectViewMode);
     const deleteModalButtons = [
         {text: 'Delete', red: true, clickHandler: confirmDeleteHandler},
@@ -23,16 +24,18 @@ const NoteList = () => {
     function confirmDeleteHandler() {
         setIsDelModalActive(false);
         dispatch(deleteNote({id: selectedNote.id}));
+        setTimeout(() => setSelectedNote(null), 200)
+        console.log(selectedNote)
     }
 
     function cancelDeleteHandler() {
         setIsDelModalActive(false);
-        setSelectedNote(null);
+        setTimeout(() => setSelectedNote(null), 200)
     }
 
     return (
         <>
-            <TransitionGroup className={`note-list ${viewMode}`}>
+            <TransitionGroup className={'note-list ' + viewMode}>
                 {filteredNotes.map((note) => (
                     <CSSTransition key={note.id} classNames="note" timeout={350}>
                         <Note

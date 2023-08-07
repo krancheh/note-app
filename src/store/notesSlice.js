@@ -5,19 +5,19 @@ const notesSlice = createSlice({
     initialState: {
         notes: [
             {
-                id: 1,
+                id: '1',
                 title: 'Note 2',
                 content: 'Lorem ipsum keke skks asdnasdaio as daskdn aksdaasd asd asdasp! As. ipsum keke skks asdnasdaioipsum keke skks asdnasdaio ipsum keke skks asdnasdaio ipsum keke skks asdnasdaio',
                 date: 1688318805,
                 color: '#FFF96F',
             },
-            {id: 2, title: 'Note 1', content: 'Рандом текстик 1', date: '2023-07-01T18:41:38.821Z', color: '#FFF96F'},
-            {id: 3, title: 'Note 3', content: 'Рандом текстик 3', date: 1688318805, color: '#FFF96F'},
-            {id: 4, title: 'Note 4', content: 'Рандом текстик 4', date: 1688318805, color: '#FFF96F'},
-            {id: 5, title: 'Note 5', content: 'Рандом текстик 4 Негры', date: 1688318805, color: '#FFF96F'},
-            {id: 6, title: 'Note 6', content: 'Рандом текстик 4 Негры', date: 1688318805, color: '#FFF96F'},
-            {id: 7, title: 'Note 7', content: 'Рандом текстик 4 Негры ', date: 1688318805, color: '#FFF96F'},
-            {id: 8, title: 'Note 8', content: 'Рандом текстик 4 Негры ', date: 1688318805, color: '#FFF96F'},
+            {id: '2', title: 'Note 1', content: 'Рандом текстик 1', date: '2023-07-01T18:41:38.821Z', color: '#FFF96F'},
+            {id: '3', title: 'Note 3', content: 'Рандом текстик 3', date: 1688318805, color: '#FFF96F'},
+            {id: '4', title: 'Note 4', content: 'Рандом текстик 4', date: 1688318805, color: '#FFF96F'},
+            {id: '5', title: 'Note 5', content: 'Рандом текстик 4 Негры', date: 1688318805, color: '#FFF96F'},
+            {id: '6', title: 'Note 6', content: 'Рандом текстик 4 Негры', date: 1688318805, color: '#FFF96F'},
+            {id: '7', title: 'Note 7', content: 'Рандом текстик 4 Негры ', date: 1688318805, color: '#FFF96F'},
+            {id: '8', title: 'Note 8', content: 'Рандом текстик 4 Негры ', date: 1688318805, color: '#FFF96F'},
         ],
         searchQuery: '',
         viewMode: 'vm-tiles',
@@ -38,6 +38,11 @@ const notesSlice = createSlice({
         },
 
         updateNote(state, action) {
+            const note = state.notes.filter(note => note.id === action.payload.newNote.id)[0];
+            console.log(note)
+            note.title = action.payload.newNote.title;
+            note.content = action.payload.newNote.content;
+            note.date = action.payload.newNote.date;
         },
 
         setSearchQuery(state, action) {
@@ -52,7 +57,6 @@ const notesSlice = createSlice({
 
 });
 
-// const selectNotesState = (state) => state.notes;
 
 const compareDates = (noteA, noteB) => {
     const dateA = new Date(noteA.date);
@@ -62,7 +66,10 @@ const compareDates = (noteA, noteB) => {
 }
 
 
+// SELECTORS
 export const selectViewMode = (state) => state.notes.viewMode;
+
+export const selectNotes = (state) => state.notes.notes;
 
 export const selectFilteredNotes = (state) => {
     const searchQuery = state.notes.searchQuery;

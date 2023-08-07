@@ -16,6 +16,10 @@ const AddButton = ({floating}) => {
 
     const addNoteHandler = (color) => {
         dispatch(addNote({color}));
+        window.scroll({
+            top: 0,
+            behavior: "smooth",
+        })
     }
 
     // const showAddButtons = (e) => {
