@@ -7,10 +7,10 @@ import {addNote} from "../store/notesSlice";
 const AddButton = ({floating}) => {
 
     const colors = {
-        default: '#fff875',
+        default: '#fff992',
         green: '#93ff75',
-        blue: '#98b3ff',
-        red: '#ff7575',
+        blue: '#9bb6ff',
+        red: '#ff8080',
     }
     const dispatch = useDispatch();
 

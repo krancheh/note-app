@@ -49,7 +49,7 @@ const BigNote = ({note}) => {
                     autoFocus
                 >
                 </textarea>
-                <p className="big-note__date">{formattedDate}</p>
+                <p className="big-note__date">{`${formattedDate}  - ${content.length} symbols`}</p>
             </div>
         </div>
     );

@@ -14,7 +14,6 @@
     padding: var(--note-padding);
 
     border-radius: 30px;
-    background-color: #fff875;
 
     z-index: 5;
 }
