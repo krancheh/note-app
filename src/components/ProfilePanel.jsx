@@ -5,7 +5,6 @@ import '../styles/ProfilePanel.css'
 const ProfilePanel = () => {
     const [accountName, setAccountName] = useState('Ilya Pedik');
 
-    setAccountName('Ilya Peddorrrr');
     return (
         <div className={'profile-panel'}>
             <p>{accountName}</p>
