@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/Header.css'
+import '../../styles/common/Header.css'
 import {useDispatch, useSelector} from "react-redux";
-import {selectViewMode, setViewMode} from "../store/notesSlice";
+import {selectViewMode, setViewMode} from "../../store/notesSlice";
 
 const Header = () => {
 

@@ -1,15 +1,14 @@
 import React from 'react';
-import '../styles/Menu.css';
-import {ReactComponent as MainLogo} from "../assets/main-logo.svg";
-import AddButton from "./AddButton";
-import {Link} from "react-router-dom";
+import '../../styles/common/Menu.css';
+import AddButton from "../notes/AddButton";
 import Footer from "./Footer";
+import MainLogo from "./MainLogo";
 
 const Menu = ({withNoteList}) => {
 
     return (
         <div className="menu">
-            <Link to="/"><MainLogo/></Link>
+            <MainLogo/>
             {
                 withNoteList ? <div></div> : <AddButton/>
             }

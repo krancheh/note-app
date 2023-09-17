@@ -1,8 +1,8 @@
 import React from 'react';
-import {ReactComponent as SearchIcon} from "../assets/search-icon.svg";
-import '../styles/SearchBar.css';
+import {ReactComponent as SearchIcon} from "../../assets/icons/search-icon.svg";
+import '../../styles/notes/SearchBar.css';
 import {useDispatch} from "react-redux";
-import {setSearchQuery} from "../store/notesSlice";
+import {setSearchQuery} from "../../store/notesSlice";
 
 const SearchBar = () => {
     const dispatch = useDispatch();

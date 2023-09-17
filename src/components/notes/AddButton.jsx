@@ -1,8 +1,8 @@
 import React from 'react';
-import {ReactComponent as AddLogo} from "../assets/add-logo.svg";
-import "../styles/AddButton.css"
+import {ReactComponent as AddLogo} from "../../assets/icons/add-logo.svg";
+import "../../styles/common/AddButton.css"
 import {useDispatch} from "react-redux";
-import {addNote} from "../store/notesSlice";
+import {addNote} from "../../store/notesSlice";
 
 const AddButton = ({floating}) => {
 
@@ -15,21 +15,21 @@ const AddButton = ({floating}) => {
     const dispatch = useDispatch();
 
     const addNoteHandler = (color) => {
-        dispatch(addNote({color}));
+        dispatch(addNote(color));
         window.scroll({
             top: 0,
             behavior: "smooth",
         })
     }
 
-    // const showAddButtons = (e) => {
-    //     e.target.classList.toggle('show');
-    // }
+    const showAddButtons = (e) => {
+        e.target.closest('.buttons').classList.toggle('show');
+    }
 
 
     return (
         <div className={`buttons ${floating ? 'floating' : ''}`}>
-            <button className="add-button" onClick={() => addNoteHandler(colors.default)}><AddLogo/></button>
+            <button className="add-button" onClick={showAddButtons}><AddLogo/></button>
             <div className="dropdown-menu">
                 <button className="colored-button" onClick={() => addNoteHandler(colors.default)}></button>
                 <button className="colored-button" onClick={() => addNoteHandler(colors.green)}></button>

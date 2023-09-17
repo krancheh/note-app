@@ -1,25 +1,18 @@
-import '../styles/Note.css';
-// import editLogo from '../assets/edit-icon.svg'
-import {ReactComponent as DeleteIcon} from "../assets/delete-icon.svg";
-// import {useDispatch} from "react-redux";
-// import {updateNote} from "../store/notesSlice";
-import formatDate from "../common/formatDate";
+import '../../styles/notes/Note.css';
+import {ReactComponent as DeleteIcon} from "../../assets/icons/delete-icon.svg";
+import formatDate from "../../common/formatDate";
 import {useNavigate} from "react-router-dom";
 
-const Note = ({note, setIsDelModalActive, setSelectedNote}) => {
+const Note = ({note, setIsDelModalActive, selectNote}) => {
 
-    const {title, content, date, color} = note;
+    const {title, content, updatedAt, color} = note;
     const navigate = useNavigate();
-    // const dispatch = useDispatch();
 
-    const formattedDate = formatDate(date);
-    // const editNoteHandler = () => {
-    //     dispatch(updateNote())
-    // }
+    const formattedDate = formatDate(updatedAt);
 
     const deleteNoteHandler = () => {
         setIsDelModalActive(true);
-        setSelectedNote(note);
+        selectNote(note.id);
     }
 
     const openNotePage = () => {

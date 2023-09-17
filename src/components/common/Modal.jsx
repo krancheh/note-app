@@ -1,9 +1,10 @@
-import '../styles/Modal.css'
+import '../../styles/common/Modal.css'
 
-const Modal = ({active, setActive, children}) => {
+const Modal = ({active, setActive, children, onClose}) => {
 
     const closeModal = () => {
         setActive(false);
+        onClose();
     }
 
     return (

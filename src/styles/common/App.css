@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.link {
+    /*text-decoration: none;*/
+    color: black;
+}
+
+.loading {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    opacity: .4;
+
+    z-index: 9999;
+}
+
+#root {
+}

@@ -27,6 +27,20 @@
 
 @media (max-width: 1150px) {
     .menu {
+        width: 100%;
+        position: absolute;
+        flex-direction: row;
+        justify-content: center;
+        height: auto;
+        background: 0;
+        z-index: 0;
+    }
+
+    .menu .footer {
+        display: none;
+    }
+
+    .menu .buttons {
         display: none;
     }
 }

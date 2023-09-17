@@ -16,13 +16,13 @@
     bottom: 30px;
 }
 
-.buttons:hover .colored-button {
+.buttons.show .colored-button {
     animation-play-state: running;
     display: block;
 }
 
-.buttons:hover .add-button svg {
-    transform: rotate(180deg);
+.buttons.show .add-button svg {
+    transform: rotate(135deg);
 }
 
 .add-button {
@@ -75,9 +75,9 @@
     transition: opacity 0.3s;
     scale: 1;
     cursor: pointer;
-    -webkit-animation: coloredButtonsAnimBottom .1s linear forwards;
-    -o-animation: coloredButtonsAnimBottom .1s linear forwards;
-    animation: coloredButtonsAnimBottom .1s linear forwards;
+    -webkit-animation: coloredButtonsAnimBottom .1s ease-in-out forwards;
+    -o-animation: coloredButtonsAnimBottom .1s ease-in-out forwards;
+    animation: coloredButtonsAnimBottom .1s ease-in-out forwards;
     animation-play-state: paused;
 }
 
@@ -86,15 +86,14 @@
 }
 
 .floating .dropdown-menu .colored-button {
-    -webkit-animation: coloredButtonsAnimLeft .5s linear forwards;
-    -o-animation: coloredButtonsAnimLeft .5s linear forwards;
-    animation: coloredButtonsAnimLeft .5s linear forwards;
+    -webkit-animation: coloredButtonsAnimLeft .15s ease-in-out forwards;
+    -o-animation: coloredButtonsAnimLeft .15s ease-in-out forwards;
+    animation: coloredButtonsAnimLeft .15s ease-in-out forwards;
     animation-play-state: paused;
 }
 
-.floating:hover .dropdown-menu .colored-button {
+.floating.show .dropdown-menu .colored-button {
     animation-play-state: running;
-
 }
 
 .colored-button:hover {
@@ -127,6 +126,25 @@
     animation-delay: .15s;
 }
 
+.floating .colored-button:nth-child(1) {
+    background-color: #fff875;
+}
+
+.floating .colored-button:nth-child(2) {
+    background-color: #93ff75;
+    animation-delay: .05s;
+}
+
+.floating .colored-button:nth-child(3) {
+    background-color: #98b3ff;
+    animation-delay: .1s;
+}
+
+.floating .colored-button:nth-child(4) {
+    background-color: #ff7575;
+    animation-delay: .15s;
+}
+
 
 @keyframes coloredButtonsAnimBottom {
     0% {
@@ -142,11 +160,12 @@
 
 @keyframes coloredButtonsAnimLeft {
     0% {
-        transform: translateX(200%);
+        transform: translateX(300%);
         scale: 0;
     }
     100% {
         transform: translateX(0);
+        scale: 1;
         opacity: 1;
     }
 }

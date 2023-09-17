@@ -1,18 +1,20 @@
 import React, {useState} from 'react';
-import formatDate from "../common/formatDate";
-import "../styles/BigNote.css";
+import formatDate from "../../common/formatDate";
+import "../../styles/notes/BigNote.css";
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {updateNote} from "../store/notesSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {selectIsLoading, updateNote} from "../../store/notesSlice";
+import Loading from "../common/Loading";
 
 const BigNote = ({note}) => {
 
 
     const [title, setTitle] = useState(note.title);
     const [content, setContent] = useState(note.content);
+    const isLoading = useSelector(selectIsLoading)
     const dispatch = useDispatch();
 
-    const formattedDate = formatDate(note.date);
+    const formattedDate = formatDate(note.updatedAt);
 
     const contentChangeHandler = (e) => {
         setContent(e.target.value);
@@ -23,9 +25,8 @@ const BigNote = ({note}) => {
 
     const saveChanges = () => {
         if (title !== note.title || content !== note.content) {
-            const newNote = {id: note.id, title, content, date: new Date().getTime()}
-            console.log(content)
-            dispatch(updateNote({newNote}))
+            const newNote = {id: note.id, title, content}
+            dispatch(updateNote(newNote))
         }
     }
 
@@ -51,6 +52,7 @@ const BigNote = ({note}) => {
                 </textarea>
                 <p className="big-note__date">{`${formattedDate}  - ${content.length} symbols`}</p>
             </div>
+            {isLoading ? null : <Loading/>}
         </div>
     );
 };

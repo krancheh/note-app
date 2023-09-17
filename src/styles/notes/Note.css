@@ -13,7 +13,7 @@
     color: #000;
     padding: var(--note-padding);
 
-    border-radius: 30px;
+    border-radius: 20px;
 
     z-index: 5;
 }
@@ -124,7 +124,7 @@
     display: flex;
     justify-content: flex-end;
 
-    z-index: 999;
+    z-index: 90;
 }
 
 .delete-button {
@@ -138,7 +138,6 @@
     border-radius: 50%;
     background-color: #e3e3e3;
     cursor: pointer;
-    z-index: 999;
 }
 
 .delete-zone:hover .delete-button {

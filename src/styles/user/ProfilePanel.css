@@ -1,0 +1,65 @@
+.profile {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.profile:hover .profile__dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+
+.profile__panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+
+    cursor: pointer;
+}
+
+.profile__name {
+}
+
+.profile__avatar {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.profile__dropdown {
+    position: absolute;
+    right: 0;
+    display: block;
+    visibility: hidden;
+    min-width: 200px;
+
+    background-color: #f8f8f8;
+    box-shadow: 0 1px 2px #0000001a;
+    border-radius: 5px;
+
+    z-index: 99;
+    opacity: 0;
+}
+
+.profile__dropdown__link:first-child {
+    border-radius: 5px 5px 0 0;
+}
+
+.profile__dropdown__link:last-child {
+    color: #fc5b5b;
+    border-radius: 0 0 5px 5px;
+}
+
+.profile__dropdown__link {
+    display: block;
+    padding: 10px;
+
+    text-decoration: none;
+    color: black;
+    opacity: .7;
+}
+
+.profile__dropdown__link:hover {
+    opacity: 1;
+    background-color: #efefef;
+}
