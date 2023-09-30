@@ -1,24 +1,36 @@
 import React from 'react';
-import {useLoaderData} from "react-router-dom";
-import NotFoundPage from "./NotFoundPage";
+import {Link, useParams} from "react-router-dom";
 import Menu from "../components/common/Menu";
 import BigNote from "../components/notes/BigNote";
 import "../styles/common/Page.css"
 import "../styles/notes/NotePage.css"
-import CheckEffect from "../components/common/CheckEffect";
+import {useGetNotesQuery} from "../features/notes/notesAPI";
+import Loading from "../components/common/Loading";
+import NoteList from "../components/notes/NoteList";
 
 const NotePage = () => {
-    const {data} = useLoaderData();
-    const note = data;
+    const {id} = useParams();
+    console.log(id)
+    const {note, isFetching} = useGetNotesQuery(undefined, {
+        selectFromResult: ({data}) => ({
+            note: data?.find((note) => note.id === +id),
+        }),
+    });
 
-    if (!note) return <NotFoundPage/>;
+    if (isFetching) return <Loading/>
     return (
         <div className="page note-page">
-            <CheckEffect/>
-
             <Menu withNoteList={true}/>
+            <div style={{display: 'none'}}>
+                <NoteList/>
+            </div>
             <main>
-                <BigNote note={note}/>
+                {note
+                    ? <BigNote note={note}/>
+                    : <div>
+                        <p style={{textAlign: 'center', fontSize: '30px'}}>Note not found</p>
+                        <Link to={'../notes'}>Back to all notes</Link>
+                    </div>}
             </main>
         </div>
     );

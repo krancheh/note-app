@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 const MainLogo = () => {
     return (
-        <Link to="/"><Logo/></Link>
+        <Link to="/note-app"><Logo/></Link>
     );
 };
 

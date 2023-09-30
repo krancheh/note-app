@@ -2,14 +2,14 @@ import React from 'react';
 import {ReactComponent as SearchIcon} from "../../assets/icons/search-icon.svg";
 import '../../styles/notes/SearchBar.css';
 import {useDispatch} from "react-redux";
-import {setSearchQuery} from "../../store/notesSlice";
+import {setSearchQuery} from "../../features/notes/notesSlice";
 
 const SearchBar = () => {
     const dispatch = useDispatch();
 
     const handleSearch = (e) => {
         const searchQuery = e.target.value;
-        dispatch(setSearchQuery(searchQuery))
+        dispatch(setSearchQuery({searchQuery}))
     }
 
     return (

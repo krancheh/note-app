@@ -1,8 +1,7 @@
 import React from 'react';
 import {ReactComponent as AddLogo} from "../../assets/icons/add-logo.svg";
 import "../../styles/common/AddButton.css"
-import {useDispatch} from "react-redux";
-import {addNote} from "../../store/notesSlice";
+import {useAddNoteMutation} from "../../features/notes/notesAPI";
 
 const AddButton = ({floating}) => {
 
@@ -12,10 +11,10 @@ const AddButton = ({floating}) => {
         blue: '#9bb6ff',
         red: '#ff8080',
     }
-    const dispatch = useDispatch();
+    const [addNote] = useAddNoteMutation();
 
-    const addNoteHandler = (color) => {
-        dispatch(addNote(color));
+    const addNoteHandler = async (color) => {
+        await addNote({color});
         window.scroll({
             top: 0,
             behavior: "smooth",

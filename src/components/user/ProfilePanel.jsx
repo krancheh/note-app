@@ -3,11 +3,11 @@ import profileIcon from '../../assets/images/profile-icon.jpg';
 import '../../styles/user/ProfilePanel.css'
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {selectUser} from "../../store/userSlice";
+import {selectUser} from "../../features/user/userSlice";
 
 const ProfilePanel = () => {
     const {username} = useSelector(selectUser);
-
+    // const image = fetch('http://10.206.38.36:7000/87e5734a-6d93-423e-a598-360c30ed3e9a.jpg')
     const logout = () => {
         localStorage.clear();
     }
@@ -16,7 +16,8 @@ const ProfilePanel = () => {
         <div className={'profile'}>
             <div className={'profile__panel'}>
                 <p className={'profile__name'}>{username}</p>
-                <img className={'profile__avatar'} src={profileIcon} alt="Avatar"/>
+                <img className={'profile__avatar'}
+                     src={profileIcon} alt="Avatar"/>
             </div>
 
             <div className="profile__dropdown">

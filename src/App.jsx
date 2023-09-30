@@ -6,22 +6,27 @@ import WelcomePage from "./pages/WelcomePage";
 import NotePage from "./pages/NotePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-import NotesService from "./services/NotesService";
+import Layout from "./components/common/Layout";
+import RequireAuth from "./components/common/RequireAuth";
+import TestPage from "./pages/TestPage";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
 
-    const noteLoader = async ({params}) => {
-        return NotesService.getNoteById(params.id);
-    }
-
     const router = createBrowserRouter(createRoutesFromElements(
-        <Route>
-            <Route path="note-app">
+        <Route errorElement={<ErrorPage/>}>
+            <Route path="note-app" element={<Layout/>}>
+                {/* Public routes */}
                 <Route index element={<WelcomePage/>}/>
                 <Route path="login" element={<LoginPage/>}/>
                 <Route path="signup" element={<SignupPage/>}/>
-                <Route path="notes" element={<NotesPage/>}/>
-                <Route path="notes/:id" loader={noteLoader} element={<NotePage/>}/>
+
+                {/* Private routes */}
+                <Route element={<RequireAuth/>}>
+                    <Route path="test" element={<TestPage/>}/>
+                    <Route path="notes" element={<NotesPage/>}/>
+                    <Route path="notes/:id" element={<NotePage/>}/>
+                </Route>
             </Route>
             <Route path="*" element={<NotFoundPage/>}/>
         </Route>

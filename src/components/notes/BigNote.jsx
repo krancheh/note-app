@@ -1,18 +1,16 @@
 import React, {useState} from 'react';
-import formatDate from "../../common/formatDate";
+import formatDate from "../../utils/formatDate";
 import "../../styles/notes/BigNote.css";
 import {Link} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {selectIsLoading, updateNote} from "../../store/notesSlice";
-import Loading from "../common/Loading";
+import {useUpdateNoteMutation} from "../../features/notes/notesAPI";
 
 const BigNote = ({note}) => {
 
-
     const [title, setTitle] = useState(note.title);
     const [content, setContent] = useState(note.content);
-    const isLoading = useSelector(selectIsLoading)
-    const dispatch = useDispatch();
+    const [updateNote] = useUpdateNoteMutation({
+        fixedCacheKey: 'update-from-note'
+    });
 
     const formattedDate = formatDate(note.updatedAt);
 
@@ -23,12 +21,13 @@ const BigNote = ({note}) => {
         setTitle(e.target.value);
     }
 
-    const saveChanges = () => {
+    const saveChanges = async () => {
         if (title !== note.title || content !== note.content) {
-            const newNote = {id: note.id, title, content}
-            dispatch(updateNote(newNote))
+            const updatedNote = {id: note.id, title, content};
+            await updateNote(updatedNote)
         }
     }
+
 
     return (
         <div className="big-note-wrapper" style={{backgroundColor: note.color}}>
@@ -52,7 +51,6 @@ const BigNote = ({note}) => {
                 </textarea>
                 <p className="big-note__date">{`${formattedDate}  - ${content.length} symbols`}</p>
             </div>
-            {isLoading ? null : <Loading/>}
         </div>
     );
 };

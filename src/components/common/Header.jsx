@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/common/Header.css'
 import {useDispatch, useSelector} from "react-redux";
-import {selectViewMode, setViewMode} from "../../store/notesSlice";
+import {selectViewMode, setViewMode} from "../../features/notes/notesSlice";
 
 const Header = () => {
 
@@ -9,8 +9,8 @@ const Header = () => {
     const viewMode = useSelector(selectViewMode);
 
     const handleVMChange = (e) => {
-        const newViewMode = e.target.value;
-        dispatch(setViewMode(newViewMode))
+        const viewMode = e.target.value;
+        dispatch(setViewMode({viewMode}))
     }
 
     return (

@@ -3,7 +3,7 @@ import {ReactComponent as LoadingIcon} from '../../assets/icons/loading-icon.svg
 
 const Loading = () => {
     return (
-        <div className="loading"><LoadingIcon/></div>
+        <div className="top-pop"><LoadingIcon/></div>
     );
 };
 

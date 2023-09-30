@@ -1,6 +1,6 @@
 import '../../styles/notes/Note.css';
 import {ReactComponent as DeleteIcon} from "../../assets/icons/delete-icon.svg";
-import formatDate from "../../common/formatDate";
+import formatDate from "../../utils/formatDate";
 import {useNavigate} from "react-router-dom";
 
 const Note = ({note, setIsDelModalActive, selectNote}) => {
@@ -26,7 +26,6 @@ const Note = ({note, setIsDelModalActive, selectNote}) => {
                 <h2 className='note-title'>{title}</h2>
                 <p className='note-content'>{content}</p>
                 <p className='note-date'>{formattedDate}</p>
-                {/*<button className='edit-button' onClick={editNoteHandler}><img alt='edit' src={editLogo}/></button>*/}
             </div>
             <div className="delete-zone">
                 <button className='delete-button' onClick={deleteNoteHandler}><DeleteIcon/></button>
